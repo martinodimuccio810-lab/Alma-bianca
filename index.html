@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bianca & Alma</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#ffb6df;
+}
+
+/* Fondo animado */
+.bg{
+  position:fixed;
+  inset:-30%;
+  background:
+    radial-gradient(circle at 20% 30%, #ff4fae 0 10%, transparent 25%),
+    radial-gradient(circle at 75% 25%, #b65cff 0 12%, transparent 28%),
+    radial-gradient(circle at 30% 80%, #ff8bd0 0 13%, transparent 30%),
+    radial-gradient(circle at 85% 75%, #7d36dc 0 12%, transparent 27%),
+    linear-gradient(135deg,#ffb1dd,#d78aff,#ff75c5,#a75ce8);
+  background-size:140% 140%;
+  animation:moveBg 10s ease-in-out infinite alternate;
+  filter:saturate(1.2);
+}
+.bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.18),transparent 35%),
+    repeating-radial-gradient(circle at 50% 50%,transparent 0 55px,rgba(255,255,255,.08) 57px 59px);
+  animation:spin 18s linear infinite;
+}
+@keyframes moveBg{
+  0%{transform:translate(-5%,-4%) scale(1);background-position:0% 30%}
+  50%{transform:translate(5%,3%) scale(1.12);background-position:100% 70%}
+  100%{transform:translate(-2%,6%) scale(1.08);background-position:40% 100%}
+}
+@keyframes spin{to{transform:rotate(360deg) scale(1.2)}}
+
+/* Burbujas */
+.bubble{
+  position:fixed;
+  border-radius:50%;
+  background:rgba(255,255,255,.18);
+  box-shadow:inset 0 0 25px rgba(255,255,255,.18);
+  animation:float 6s ease-in-out infinite;
+}
+.b1{width:120px;height:120px;left:7%;top:10%}
+.b2{width:70px;height:70px;right:10%;top:18%;animation-delay:1.5s}
+.b3{width:180px;height:180px;right:3%;bottom:-30px;animation-delay:2.5s}
+.b4{width:55px;height:55px;left:18%;bottom:15%;animation-delay:3s}
+@keyframes float{50%{transform:translateY(-35px) translateX(18px)}}
+
+.name{
+  font-size:clamp(40px,7vw,68px);
+  font-weight:900;
+  letter-spacing:1px;
+  background: linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent;
+  filter:
+    drop-shadow(0 0 6px var(--accent))
+    drop-shadow(0 0 16px var(--accent2));
+  animation: glow 2s infinite alternate;
+}
+
+.card{
+  position:relative;
+  z-index:5;
+  width:min(90%,760px);
+  padding:65px 30px;
+  text-align:center;
+  border-radius:35px;
+  background:rgba(255,255,255,.22);
+  border:2px solid rgba(255,255,255,.5);
+  backdrop-filter:blur(10px);
+  box-shadow:0 25px 80px rgba(92,20,130,.35);
+}
+h1{
+  margin:0;
+  color:#6d18b7;
+  font-size:clamp(45px,9vw,90px);
+  line-height:1.03;
+  font-weight:900;
+  letter-spacing:2px;
+  animation:glow 2s infinite alternate;
+  text-shadow:0 3px 0 #a633cf,0 8px 25px rgba(86,0,130,.28);
+}
+.heart{
+  margin-top:28px;
+  font-size:48px;
+  animation:pulse 1.2s infinite;
+}
+@keyframes pulse{50%{transform:scale(1.18)}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="bubble b1"></div><div class="bubble b2"></div>
+<div class="bubble b3"></div><div class="bubble b4"></div>
+
+<div class="card">
+  <h1 class="name">bianca <br>alma <br>Trolas</h1>
+</div>
+</body>
+</html>
